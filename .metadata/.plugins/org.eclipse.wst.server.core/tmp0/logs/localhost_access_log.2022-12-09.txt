@@ -1,0 +1,7 @@
+127.0.0.1 - - [09/Dec/2022:14:21:58 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [09/Dec/2022:14:22:01 +0900] "GET /sharegram/ HTTP/1.1" 200 725
+0:0:0:0:0:0:0:1 - - [09/Dec/2022:14:22:01 +0900] "GET /sharegram/resources/summernote-0.8.18-dist/lang/summernote-ko-KR.min.js HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Dec/2022:14:22:01 +0900] "GET /sharegram/resources/js/jquery-3.6.1.min.js HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Dec/2022:14:22:01 +0900] "GET /sharegram/resources/summernote-0.8.18-dist/summernote-lite.css HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Dec/2022:14:22:01 +0900] "GET /sharegram/resources/js/moment-with-locales.js HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Dec/2022:14:22:01 +0900] "GET /sharegram/resources/summernote-0.8.18-dist/summernote-lite.js HTTP/1.1" 404 721

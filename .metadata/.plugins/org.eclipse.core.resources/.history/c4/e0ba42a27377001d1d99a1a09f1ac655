@@ -1,0 +1,8 @@
+package com.group.sharegram.user.controller;
+
+
+
+@org.springframework.stereotype.Controller
+public class Controller {
+
+}

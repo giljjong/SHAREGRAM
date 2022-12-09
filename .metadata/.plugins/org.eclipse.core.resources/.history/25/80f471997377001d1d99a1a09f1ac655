@@ -1,0 +1,6 @@
+package com.group.sharegram.user.controller;
+
+@Controller
+public class Controller {
+
+}
