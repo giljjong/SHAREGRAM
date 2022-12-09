@@ -1854,3 +1854,9 @@ Caused by: java.io.IOException: Could not find com.group.sharegram.config$DBConf
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-12-09 18:20:41.731
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-12-09 18:25:48.208
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-12-09 18:25:48.253
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
