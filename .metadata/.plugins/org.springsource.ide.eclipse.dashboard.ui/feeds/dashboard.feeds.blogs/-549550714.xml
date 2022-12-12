@@ -85,7 +85,7 @@
     <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
 &lt;p&gt;I am happy to announce the 4.17.0 release of the Spring Tools 4 for Eclipse, Visual Studio Code, and Theia.&lt;/p&gt;&lt;h4&gt;&lt;a href="#major-changes-to-the-spring-tools-4-for-eclipse-distribution" class="anchor" name="major-changes-to-the-spring-tools-4-for-eclipse-distribution"&gt;&lt;/a&gt;major changes to the Spring Tools 4 for Eclipse distribution&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;updated to Eclipse 2022-12 release (&lt;a href="https://www.eclipse.org/eclipseide/2022-12/"&gt;new and noteworthy&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;updated to Eclipse 2022-12 release (&lt;a href="https://eclipseide.org/release/noteworthy/"&gt;new and noteworthy&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;&lt;h4&gt;&lt;a href="#early-access-to-new-experimental-features" class="anchor" name="early-access-to-new-experimental-features"&gt;&lt;/a&gt;early access to new experimental features&lt;/h4&gt;
 &lt;p&gt;Among a number of bug fixes and minor improvements, this release introduces experimental support for:&lt;/p&gt;
 &lt;ul&gt;
