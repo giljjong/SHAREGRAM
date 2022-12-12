@@ -2247,3 +2247,9 @@ java.lang.ClassNotFoundException: org.springsource.ide.eclipse.commons.gettingst
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-12-12 10:13:33.497
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-12-12 10:25:01.988
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-12-12 10:25:02.005
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
