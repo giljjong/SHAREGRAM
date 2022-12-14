@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.group.sharegram.mapper.NoticBoardMapper">
+
+	<select id="selectAllNoticListCount" resultType="int">
+		SELECT COUNT(*)
+		  FROM NOTIC
+	</select>
+	
+	<select id="selectNoticList" parameterType="Map" resultType="NoticBoardDTO">
+		SELECT N.RN, N.NOTIC_NO, N.EMP_NO, N.BOARD_TITLE, N.BOARD_CONTENT, N.CREATE_DATE, N.MODIFY_DATE, N.HIT
+		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY GROUP_NO DESC, GROUP_ORDER ASC) AS RN, NOTIC_NO, EMP_NO, BOARD_TITLE, BOARD_CONTENT, CREATE_DATE, MODIFY_DATE, HIT
+		          FROM BOARD) F
+		 WHERE N.RN BETWEEN #{begin} AND #{end}
+	</select>
+	
+	<insert id="insertNotic" parameterType="NoticBoardDTO">
+		INSERT INTO NOTIC
+			(NOTIC_NO, EMP_NO, BOARD_TITLE, BOARD_CONTENT, CREATE_DATE, MODIFY_DATE, HIT)
+		VALUES
+   		    (NOTIC_SEQ.NEXTVAL, #{empNo}, #{boardTitle}, #{boardContent}, SYSDATE, SYSDATE, 0)
+	</insert>   	
+	
+	<update id="deleteNotic" parameterType="int">
+		UPDATE NOTIC
+		   SET STATE = 0
+		 WHERE NOTIC_NO = #{noticNo}
+	</update>
+	
+	<insert id="insertContent" parameterType="NoticBoardDTO">
+		INSERT INTO NOTIC
+			(NOTIC_NO, EMP_NO, BOARD_TITLE, BOARD_CONTENT, CREATE_DATE, MODIFY_DATE, HIT)
+		VALUES
+			(NOTIC_SEQ.NEXTVAL, #{empNo}, #{boardTitle}, #{boardContent}, SYSDATE, SYSDATE, 0)
+	</insert>
+	
+	<select id="selectBoardByNo" parameterType="int" resultType="NoticBoardDTO">
+		SELECT NOTIC_NO, EMP_NO, BOARD_TITLE, BOARD_CONTENT, CREATE_DATE, MODIFY_DATE, HIT
+		  FROM NOTIC
+		 WHERE NOTIC_NO = #{noticNo}
+	</select>
+	
+	<update id="modifyNotic" parameterType="NoticBoardDTO">
+		UPDATE NOTIC
+		   SET BOARD_CONTENT = #{boardContent}
+		 WHERE NOTIC_NO = #{noticNo}
+	</update> 
+	
+	<update id="updateHit" parameterType="int">
+		UPDATE NOTIC
+			SET HIT = HIT + 1
+		WHERE NOTIC_NO = #{noticNo}
+	</update>
+	
+</mapper>

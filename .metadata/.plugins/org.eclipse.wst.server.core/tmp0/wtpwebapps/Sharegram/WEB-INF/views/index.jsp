@@ -17,7 +17,7 @@
 <body>
 	
 	
-	<a href="${contextPath}/board/list">게시판</a>
+	<a href="${contextPath}/board/noticList">게시판</a>
 	<a href="${contextPath}/mail/list">메일</a>
 	<a href="${contextPath}/schedule/list">일정관리</a>
 	<a href="${contextPath}/doucment/list">전자결재</a>
