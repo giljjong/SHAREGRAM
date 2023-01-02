@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.group.sharegram.board.mapper.UploadCommentMapper">
+
+	<select id="selectCommentCount" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		  FROM COMMENTS
+		 WHERE BOARD_NO= #{boardNo}  
+	</select>
+	
+	
+	<insert id="insertComment" parameterType="UploadCommentDTO" useGeneratedKeys="true" keyProperty="cmtNo">
+		INSERT INTO COMMENTS
+			(BOARD_NO, EMP_NO, CREATE_DATE,CMT_CONTENT, STATE,DEPTH, GROUP_NO)
+		VALUES
+			(#{boardNo}, #{empNo}, NOW() ,#{cmtContent}, 1, 0, 0)	
+	</insert>
+	
+	<update id="updateGroupNo" parameterType="UploadCommentDTO">
+		UPDATE COMMENTS
+		   SET GROUP_NO = #{cmtNo}
+		 WHERE CMT_NO = #{cmtNo}
+	</update>
+	
+	<select id="selectCommentList" parameterType="Map" resultType="UploadCommentDTO">
+		SELECT CMT_NO, BOARD_NO, EMP_NO, CREATE_DATE,CMT_CONTENT, STATE,DEPTH,GROUP_NO
+		  FROM COMMENTS
+		 WHERE BOARD_NO= #{boardNo}
+		 LIMIT #{begin}, #{recordPerPage}	     
+	</select>
+	
+	<update id="deleteComment" parameterType="int">
+		UPDATE COMMENTS
+		   SET STATE = -1
+		 WHERE CMT_NO = #{cmtNo}
+	</update>
+	
+	<insert id="insertReply" parameterType="UploadCommentDTO" useGeneratedKeys="true" keyProperty="cmtNo">
+		INSERT INTO COMMENTS
+			(BOARD_NO, EMP_NO, CREATE_DATE,CMT_CONTENT, STATE,DEPTH,GROUP_NO)
+		VALUES
+			(#{boardNo}, #{empNo}, NOW() ,#{cmtContent}, 1, 1, #{groupNo})
+	</insert>
+	
+</mapper>

@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ControllerAdvice"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.util.FileUtil"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.common.FileUtil"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.appproval.ApprovalDTO"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetails"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.util.SecurityUtil"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.mail.domain.EmployeesDTO"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.util.PageUtil"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.mail.mapper.EmpMapper"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.mail.service.EmpService"/>
+    <fullyQualifiedTypeName name="com.sun.jdi.event.Event"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpRequest"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.approval.ApprovalDTO"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.board.domain.AttachDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.springframework.core.io.Resource"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.user.domain.DepartmentsDTO"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.user.domain.EmployeesDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.board.domain.AnonyBoardDTO"/>
+    <fullyQualifiedTypeName name="com.group.sharegram.board.domain.AnonyCommentDTO"/>
 </qualifiedTypeNameHistroy>
