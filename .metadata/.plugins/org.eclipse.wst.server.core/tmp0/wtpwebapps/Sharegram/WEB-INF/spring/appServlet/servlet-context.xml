@@ -14,6 +14,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/load/image/**" location="file:///storage/summernote/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,6 +23,50 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.group.sharegram" />
+	
+	<!-- Interceptor -->
+
+   <interceptors>
+   	
+   	  
+   	
+      <interceptor>
+         <mapping path="/admin/**"/>
+         <beans:bean class="com.group.sharegram.interceptor.adminControllInterceptor" />
+      </interceptor>
+      
+      <!-- 로그인 상태일 때 사용할 수 없음  -->
+      <interceptor>
+         <mapping path="/user/login/form"/>
+         <beans:bean class="com.group.sharegram.interceptor.PreventLoginInterceptor" />
+      </interceptor>
+      
+      
+       <!--  로그인 필요 -->
+      <interceptor>
+      	 <mapping path="/main"/>
+		<mapping path="/user/check"/>
+ 		<mapping path="/user/join"/>
+  		<mapping path="/user/list"/>
+   		<mapping path="/user/mypage"/>
+    	<mapping path="/user/retirelist"/>
+      	      
+         <mapping path="/board/**"/>
+         <mapping path="/addr/**"/>
+         <mapping path="/approval/**"/>
+         <mapping path="/company/**"/>
+         <mapping path="/mail/**"/>
+         <mapping path="/schedule/**"/>
+         <beans:bean class="com.group.sharegram.interceptor.PreventNoLoginInterceptor" />
+  
+      </interceptor>
+  
+      <!-- 로그인 유지  -->
+   	  <interceptor>
+         <mapping path="/**"/>
+         <beans:bean id="keepLoginInterceptor" class="com.group.sharegram.interceptor.KeepLoginInterceptor" />
+      </interceptor>
+	</interceptors>
 	
 	
 	

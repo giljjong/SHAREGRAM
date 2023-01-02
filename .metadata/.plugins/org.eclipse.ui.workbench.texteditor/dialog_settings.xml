@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="logback"/>
+		<item key="selection" value="console.log"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="logback"/>
-			<item value="log"/>
+			<item value="console.log"/>
+			<item value="btn_detail"/>
+			<item value="system"/>
+			<item value="btn_modify"/>
+			<item value="fn_showHide()"/>
+			<item value="ORDER BY A.ATT_START ASC"/>
+			<item value="findAllEmp"/>
+			<item value="employees"/>
+			<item value="modify"/>
+			<item value="정보수정"/>
+			<item value="SELECT M.MAIL_NO, M.EMP_NO, M.SENDER, M.SUBJECT, M.MAIL_CONTENT, M.SEND_DATE, M.SEND_STATUS, M.TAG_NO, R.READ_CHECK, R.DELETE_CHECK"/>
+			<item value="begin"/>
+			<item value="selectEmpAddrListByDeptNo"/>
+			<item value="tomcat"/>
+			<item value="if"/>
 		</list>
 		<list key="replacehistory">
+			<item value="commentNo"/>
+			<item value="anonyNo"/>
+			<item value="anonycomment"/>
+			<item value="anonyContent"/>
+			<item value="anonyBoard"/>
+			<item value="anonyTitle"/>
+			<item value="/board/anony/"/>
+			<item value="frm_edit"/>
+			<item value="anonyEdit_content"/>
+			<item value="anonyEdit_title"/>
+			<item value="anonyDetail"/>
+			<item value="anonyWrite"/>
+			<item value="anonyList"/>
+			<item value="board_anony"/>
+			<item value="anony_title"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="813"/>
-		<item key="DIALOG_Y_ORIGIN" value="239"/>
-		<item key="DIALOG_WIDTH" value="310"/>
+		<item key="DIALOG_X_ORIGIN" value="8"/>
+		<item key="DIALOG_Y_ORIGIN" value="137"/>
+		<item key="DIALOG_WIDTH" value="306"/>
 		<item key="DIALOG_HEIGHT" value="434"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|10.5|0|WINDOWS|1|-14|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>

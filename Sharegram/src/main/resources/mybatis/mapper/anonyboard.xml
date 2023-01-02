@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.group.sharegram.board.mapper.AnonyBoardMapper">
+	<select id="selectAllAnonyListCount" resultType="int">
+		SELECT COUNT(*)
+		  FROM ANONY
+	</select>
+	
+	<select id="selectAnonyList" parameterType="Map" resultType="AnonyBoardDTO">
+		SELECT ANONY_NO, ANONY_TITLE, ANONY_CONTENT, CREATE_DATE, EMP_NO
+		  FROM ANONY ORDER BY ANONY_NO DESC
+         LIMIT #{begin}, #{recordPerPage};
+	</select>
+	
+<insert id="insertAnony" parameterType="AnonyBoardDTO" useGeneratedKeys="false" keyProperty="anonyNo">
+		INSERT INTO ANONY
+			(ANONY_TITLE, ANONY_CONTENT, CREATE_DATE, EMP_NO)
+		VALUES
+   		    (#{anonyTitle}, #{anonyContent}, NOW(), #{empNo})
+	</insert>   	
+	
+	<select id="selectAnonyByNo" parameterType="int" resultType="AnonyBoardDTO">
+		SELECT ANONY_NO, ANONY_TITLE, ANONY_CONTENT, CREATE_DATE, EMP_NO
+		  FROM ANONY
+		 WHERE ANONY_NO = #{AnonyNo}
+	</select>
+	
+	<update id="updateAnony" parameterType="AnonyBoardDTO">
+		UPDATE ANONY
+		   SET ANONY_TITLE = #{anonyTitle}
+		     , ANONY_CONTENT = #{anonyContent}
+		 WHERE ANONY_NO = #{AnonyNo}
+	</update> 	
+	
+	<delete id="deleteAnony" parameterType="int">
+		DELETE
+		  FROM ANONY
+		 WHERE ANONY_NO = #{AnonyNo}
+	</delete>
+	
+	<!-- <insert id="insertContent" parameterType="AnonyBoardDTO">
+		INSERT INTO ANONY
+			(ANONY_NO, ANONY_TITLE, ANONY_CONTENT, CREATE_DATE, EMP_NO)
+		VALUES
+			(Anony_SEQ.NEXTVAL, #{anonyTitle}, #{anonyContent}, SYSDATE, #{empNo})
+	</insert> -->
+	
+<!-- 	<update id="updateHit" parameterType="int">
+		UPDATE ANONY
+		   SET HIT = HIT + 1
+		 WHERE ANONY_NO = #{AnonyNo}
+	</update>
+	 -->
+	
+
+</mapper>

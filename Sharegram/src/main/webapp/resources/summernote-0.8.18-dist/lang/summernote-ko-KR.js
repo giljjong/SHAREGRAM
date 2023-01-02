@@ -142,7 +142,28 @@ return /******/ (function(modules) { // webpackBootstrap
         shapeNone: '스타일: 없음',
         dragImageHere: '텍스트 혹은 사진을 이곳으로 끌어오세요',
         dropImage: '텍스트 혹은 사진을 내려놓으세요',
-        selectFromFiles: '파일 선택',
+        selectFromFiles<class="btn_primary">: '파일 선택',
+        <style>
+	        .btn_primary {
+			 background:#4e73df;
+		     color:white;
+		     height:25px;	/* 버튼 높이(크기) 조정 */
+		     border-radius:8px;
+		     /* margin:0 auto; 버튼 가운데 정렬*/
+		     margin-right: 5px;   /* 버튼 사이 간격 조정 */
+		     border:none;
+		     cursor:pointer;
+		     font-size:13px;
+		     font-weight: 600;
+		     font-family: 'Montserrat', sans-serif;
+		     box-shadow:0 15px 30px rgba(#ffffff,.36);
+		     transition:.2s linear;
+		}
+		
+			.btn_primary:hover {
+				background:#324b96;  /* RGB 70 115 163 */
+			}    
+        </style>
         maximumFileSize: '최대 파일 크기',
         maximumFileSizeError: '최대 파일 크기를 초과했습니다.',
         url: '사진 URL',

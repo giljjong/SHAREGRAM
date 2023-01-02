@@ -1,7 +1,0 @@
-package com.group.sharegram.user.controller;
-
-
-@Da
-public class UserController {
-
-}

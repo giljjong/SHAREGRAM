@@ -16,12 +16,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-@MapperScan(basePackages = {"com.group.sharegram.mapper"})
+@MapperScan(basePackages = {"com.group.sharegram.*.mapper"})
 @PropertySource(value = {"classpath:application.properties"})
 @EnableTransactionManagement
 @Configuration
 public class DBConfig {
-
+	
 	@Value(value = "${spring.datasource.hikari.driver-class-name}")
 	private String driverClassName;
 	
@@ -40,6 +40,7 @@ public class DBConfig {
 	@Value(value="${mybatis.config-location}")
 	private String configLocation;
 	
+	// HikariConfig
 	@Bean
 	public HikariConfig config() {
 		HikariConfig config = new HikariConfig();
@@ -48,13 +49,15 @@ public class DBConfig {
 		config.setUsername(username);
 		config.setPassword(password);
 		return config;
-	}
+	}	
 	
+	// HikariDataSource
 	@Bean(destroyMethod="close")
 	public HikariDataSource dataSource() {
 		return new HikariDataSource(config());
 	}
 	
+	// SqlSessionFactory
 	@Bean
 	public SqlSessionFactory factory() throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
@@ -64,11 +67,13 @@ public class DBConfig {
 		return bean.getObject();
 	}
 	
+	// SqlSessionTemplate
 	@Bean
 	public SqlSessionTemplate sqlSessionTemplate() throws Exception {
 		return new SqlSessionTemplate(factory());
 	}
 	
+	// TransactionManager
 	@Bean
 	public TransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.group.sharegram.schedule.mapper.AttendanceMapper">
+	
+	<resultMap type="DepartmentsDTO" id="DeptMap">
+		<id column="DEPT_NO" property="deptNo" />
+		<result column="DEPT_NAME" property="deptName" />
+	</resultMap>
+	
+	<resultMap type="PositionDTO" id="PosMap">
+		<id column="JOB_NO" property="jobNo" />
+		<result column="JOB_NAME" property="jobName" />
+	</resultMap>
+	
+	
+	<resultMap type="EmployeesDTO" id="EmpMap">
+		<id column="EMP_NO" property="empNo" />
+		<result column="NAME" property="name" />
+		<result column="JOIN_DATE" property="joinDate" />
+		<collection resultMap="DeptMap" property="departmentsDTO"></collection>
+		<collection resultMap="PosMap" property="positionDTO"></collection>
+	</resultMap>
+	
+	<resultMap type="AttendanceDTO" id="AttMap">
+		<id column="ATT_NO" property="attNo" />
+		<result column="ATT_START" property="attStart" />
+		<result column="ATT_END" property="attEnd" />
+		<result column="ATT_STATUS" property="attStatus" />
+		<result column="EARLY_CONTENT" property="earlyContent" />
+		<result column="EARLY_STATUS" property="earlyStatus" />
+		<collection resultMap="EmpMap" property="empDTO"></collection>
+	</resultMap>
+	
+	<select id="selectAttendaceCount" resultType="int">
+		SELECT COUNT(*)
+ 			FROM ATTENDANCE
+	</select>
+	
+	<!-- OPRDER BY  추가  -->
+	<select id="selectAttendanceListByMap" parameterType="map" resultMap="AttMap">
+		SELECT D.DEPT_NAME, P.JOB_NAME, E.EMP_NO, E.NAME, A.ATT_START, A.ATT_END, A.ATT_STATUS , A.ATT_NO , A.EARLY_STATUS
+                  FROM DEPARTMENTS D
+                  INNER JOIN EMPLOYEES E
+                      ON D.DEPT_NO = E.DEPT_NO
+                  INNER JOIN EMP_POSITION P
+                      ON P.JOB_NO = E.JOB_NO
+                  INNER JOIN ATTENDANCE A
+                      ON A.EMP_NO = E.EMP_NO
+                 ORDER BY A.ATT_START DESC
+			     LIMIT #{begin}, #{recordPerPage}
+	</select>
+	
+	<select id="selectAttendanceListCheck"	>
+		SELECT ATT_NO , EMP_NO , ATT_START , ATT_END , ATT_DATE , ATT_DAY , ATT_STATUS 
+    		FROM ATTENDANCE
+	</select>		
+	
+	<select id="selectAttendanceCheck" parameterType ="AttendanceDTO" resultType="AttendanceDTO">
+		SELECT ATT_STATUS, ATT_START, ATT_END
+          FROM ATTENDANCE   
+             WHERE EMP_NO = #{empNo} AND ATT_START LIKE  CONCAT(#{attStart}, '%')
+	</select>
+	
+	
+	 <insert id="insertAttendacne" parameterType="AttendanceDTO" useGeneratedKeys="false" keyProperty="attNo">
+	      INSERT INTO ATTENDANCE
+	            (EMP_NO , ATT_START , ATT_STATUS)
+	         VALUES
+	            (#{empNo}, #{attStart} , #{attStatus})
+   </insert>
+	
+	<update id="updateLeaveWork" parameterType="AttendanceDTO">
+      UPDATE ATTENDANCE
+          SET ATT_END = #{attEnd},
+             EARLY_STATUS = #{earlyStatus}
+          WHERE EMP_NO = #{empNo} AND ATT_START LIKE CONCAT(#{attStart}, '%')
+   </update>
+	<!-- 수정 포지션 -->
+	<select id="selectAttendacneByNo" parameterType="int" resultMap="AttMap">
+		SELECT  D.DEPT_NAME, P.JOB_NAME, E.EMP_NO, E.NAME, A.ATT_START, A.ATT_END, A.ATT_STATUS , A.ATT_NO  , A.EARLY_STATUS
+		            FROM DEPARTMENTS D
+		            INNER JOIN EMPLOYEES E
+		                ON D.DEPT_NO = E.DEPT_NO
+		            INNER JOIN EMP_POSITION P
+		                ON P.JOB_NO = E.JOB_NO
+		            INNER JOIN ATTENDANCE A
+		                ON A.EMP_NO = E.EMP_NO
+         WHERE A.ATT_NO = #{attNo}
+         ORDER BY A.ATT_START ASC
+	</select> 
+	
+	<update id="updateAttendacne" parameterType="map">
+		UPDATE ATTENDANCE
+		   SET ATT_START = #{attStart}
+		     , ATT_END = #{attEnd}
+		     , ATT_STATUS = #{attStatus}
+		     , EARLY_STATUS = #{earlyStatus}
+		 WHERE ATT_NO = #{attNo} AND EMP_NO = #{empNo}
+	</update>
+	
+	<delete id="deleteAttendacneList" parameterType="List">
+		DELETE
+		  FROM ATTENDANCE
+		<where>
+			ATT_NO IN
+			<foreach collection="list" item="attNo" open="(" close=")" separator=",">
+				#{attNo}
+			</foreach>
+		</where>
+	</delete>
+	
+	
+		
+</mapper>
