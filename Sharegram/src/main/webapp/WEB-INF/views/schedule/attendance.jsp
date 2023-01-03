@@ -280,7 +280,7 @@ function fn_modify(){
 
 function fn_detail(){
 	$(document).on('click', '.btn_detail', function(){
-		//console.log($('#exampleModal').modal('toggle'));
+		$('#exampleModal').modal('toggle');
 		$.ajax({
 			type: 'get',
 			url: '${contextPath}/attendance/' + $(this).data('attendance_no'),
