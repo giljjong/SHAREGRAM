@@ -157,7 +157,7 @@ $(function(){
 	let employeesNo = 0;
 	function fn_detail(){
 	$(document).on('click', '.btn_detail', function(){
-		//console.log($('#exampleModal').modal('toggle'));
+		$('#exampleModal').modal('toggle');
 		employeesNo = $(this).data('emp_no'); 
 	});
 }
